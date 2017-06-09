@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com http://api.openweathermap.org 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">-->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-eval' 'unsafe-inline';">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false&key=AIzaSyDRd2xy889drNY0N3sscWWTcucpRK4E3kg"></script>
+    <title>RescYou Team weather map</title>
+    <style>
+      
+        #map {
+            height: 80vh;
+            width: 100vw;
+            padding: 0;
+            margin: 0;
+            margin-left: 1px;
+            margin-right: 10px;
+            margin-top: 1px;
+            margin-bottom: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div data-role="page" id="weather-page">
+
+        <div data-role="header" class="header">
+            <h1 id="app-title">Weather App</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <form>
+                <label for="zip-code">Type your location:</label>
+                <input id="zip-code-input" name="zip-code" placeholder="landmark" required />
+                <!--<button id="get-weather-btn" data-role="button" data-icon="search">Find Weather</button>-->
+            </form>
+            <div id="map"></div>
+        </div>
+        <footer data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-transition="none" data-icon="home">Home</a></li>
+                    <li><a href="#startTracking" data-transition="none" data-icon="plus">Rescue</a></li>
+                    <li><a href="#history" data-transition="none" data-icon="star">Settings</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
+    <script src="scripts/jquery-2.2.3.min.js"></script>
+    <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
+    <script src="scripts/weather.js"></script>
+</body>
+</html>
