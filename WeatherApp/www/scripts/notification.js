@@ -16,8 +16,8 @@
         
         // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
 
-        $('#send-request-btn').click(getWeatherWithZipCode);
-        getWeatherWithGeoLocation();
+        //$('#send-request-btn').click(getWeatherWithZipCode);
+        getAllIncidents();
 
 
         $('#homelink').click(function () {

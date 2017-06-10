@@ -13,12 +13,84 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-    <script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false&key=AIzaSyDRd2xy889drNY0N3sscWWTcucpRK4E3kg"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRd2xy889drNY0N3sscWWTcucpRK4E3kg&libraries=places"
+            async defer></script>
     <title>RescYou Team weather map</title>
+
+
     <style>
-      
+        /* Always set the map height explicitly to define the size of the div
+        * element that contains the map. */
+        #description {
+            font-family: Roboto;
+            font-size: 15px;
+            font-weight: 300;
+        }
+
+        #infowindow-content .title {
+            font-weight: bold;
+        }
+
+        #infowindow-content {
+            display: none;
+        }
+
+        #map #infowindow-content {
+            display: inline;
+        }
+
+        .pac-card {
+            margin: 10px 10px 0 0;
+            border-radius: 2px 0 0 2px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            outline: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            background-color: #fff;
+            font-family: Roboto;
+        }
+
+        #pac-container {
+            padding-bottom: 12px;
+            margin-right: 12px;
+        }
+
+        .pac-controls {
+            display: inline-block;
+            padding: 5px 11px;
+        }
+
+            .pac-controls label {
+                font-family: Roboto;
+                font-size: 13px;
+                font-weight: 300;
+            }
+
+        #pac-input {
+            background-color: #fff;
+            font-family: Roboto;
+            font-size: 15px;
+            font-weight: 300;
+            margin-left: 12px;
+            padding: 0 11px 0 13px;
+            text-overflow: ellipsis;
+            width: 400px;
+        }
+
+            #pac-input:focus {
+                border-color: #4d90fe;
+            }
+
+        #title {
+            color: #fff;
+            background-color: #4d90fe;
+            font-size: 25px;
+            font-weight: 500;
+            padding: 6px 12px;
+        }
+    </style>
+
+    <style>
         #map {
             height: 80vh;
             width: 100vw;
@@ -39,18 +111,24 @@
         </div>
         <div role="main" class="ui-content">
             <form>
-                <label for="zip-code">Type your location:</label>
-                <input id="zip-code-input" name="zip-code" placeholder="landmark" required />
-                <!--<button id="get-weather-btn" data-role="button" data-icon="search">Find Weather</button>-->
+                <input id="pac-input-location" type="text"
+                       placeholder="Enter a location">
+                <input id="incident-code-summary" name="incident-summary" placeholder="Tell us more" />
             </form>
             <div id="map"></div>
+            <div id="infowindow-content">
+                <img src="" width="16" height="16" id="place-icon">
+                <span id="place-name" class="title"></span><br>
+                <span id="place-address"></span>
+            </div>
         </div>
         <footer data-role="footer" data-position="fixed">
             <div data-role="navbar">
                 <ul>
-                    <li><a href="#home" data-transition="none" data-icon="home">Home</a></li>
-                    <li><a href="#startTracking" data-transition="none" data-icon="plus">Rescue</a></li>
+                    <li><a href="#home" id="homelink" data-transition="none" data-icon="home">Home</a></li>
+                    <li><a href="#startTracking" id="send-request-btn" data-transition="none" data-icon="plus">Rescue</a></li>
                     <li><a href="#history" data-transition="none" data-icon="star">Settings</a></li>
+                    <li><a href="#notification" id="notificationClick" data-role="button" data-icon="bell">Notification</a></li>
                 </ul>
             </div>
         </footer>
