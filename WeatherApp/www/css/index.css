@@ -32,3 +32,62 @@ form {
     margin-top:  50%;
     font-weight: bold;    
 }
+
+.ui-nosvg .ui-icon-megaphone:after {
+    background-image: url(images/icons-png/megaphone-black.png);
+}
+
+.ui-nosvg .ui-alt-icon.ui-icon-megaphone:after,
+.ui-nosvg .ui-alt-icon .ui-icon-megaphone:after {
+    background-image: url(images/icons-png/megaphone-black.png);
+}
+
+
+.ui-nosvg .ui-icon-gear:after {
+    background-image: url(images/icons-png/gear-black.png) !important;
+}
+
+.ui-nosvg .ui-alt-icon.ui-icon-gear:after,
+.ui-nosvg .ui-alt-icon .ui-icon-gear:after {
+    background-image: url(images/icons-png/gear-black.png) !important;
+}
+
+.ui-nosvg .ui-icon-bell:after {
+    background-image: url(images/icons-png/bell-black.png) !important;
+}
+
+.ui-nosvg .ui-alt-icon.ui-icon-bell:after,
+.ui-nosvg .ui-alt-icon .ui-icon-bell:after {
+    background-image: url(images/icons-png/bell-black.png) !important;
+}
+
+.ui-nosvg .ui-icon-home:after {
+    background-image: url(images/icons-png/home-black.png) !important;
+}
+
+.ui-nosvg .ui-alt-icon.ui-icon-home:after,
+.ui-nosvg .ui-alt-icon .ui-icon-home:after {
+    background-image: url(images/icons-png/home-black.png) !important;
+}
+
+
+.ui-nosvg .ui-icon-history:after {
+    background-image: url(images/icons-png/history-black.png);
+}
+
+.ui-nosvg .ui-alt-icon.ui-icon-history:after,
+.ui-nosvg .ui-alt-icon .ui-icon-history:after {
+    background-image: url(images/icons-png/history-black.png);
+}
+
+.ui-btn-icon-left:after,
+.ui-btn-icon-right:after,
+.ui-btn-icon-top:after,
+.ui-btn-icon-bottom:after,
+.ui-btn-icon-notext:after {
+    background-color: rgb(246, 246, 246) !important; /*{global-icon-disc}*/
+}
+
+.header {
+    background-image: -webkit-gradient(linear, 0% 100%, 100% 0%, color-stop(0%, #ffffff), color-stop(100%, rgb(144, 194, 38)));
+}
